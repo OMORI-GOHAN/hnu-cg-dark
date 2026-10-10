@@ -8,7 +8,6 @@
     --gh-bg-tertiary: #21262d;
     --gh-bg-hover: #1f242c;
     --gh-border: #30363d;
-    --gh-border-light: #21262d;
     --gh-text: #e6edf3;
     --gh-text-secondary: #8b949e;
     --gh-text-muted: #6e7681;
@@ -18,7 +17,6 @@
     --gh-green: #3fb950;
     --gh-yellow: #d29922;
     --gh-red: #f85149;
-    --gh-purple: #a371f7;
     --gh-shadow: rgba(0, 0, 0, 0.35);
 }
 
@@ -162,27 +160,25 @@ html .bg-white {
     color: #ffffff !important;
 }
 
-input,
+/* 文本类输入、文本域和下拉框；其他控件保留原生或专用样式。 */
+input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]),
 textarea,
-select,
-.form-control,
-.custom-select {
+select {
     background-color: var(--gh-bg-tertiary) !important;
     color: var(--gh-text) !important;
     border: 1px solid var(--gh-border) !important;
 }
 
-input:focus,
+input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]):focus,
 textarea:focus,
-select:focus,
-.form-control:focus {
+select:focus {
     background-color: var(--gh-bg-tertiary) !important;
     color: var(--gh-text) !important;
     border-color: var(--gh-blue-light) !important;
     box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.25) !important;
 }
 
-input::placeholder,
+input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"])::placeholder,
 textarea::placeholder {
     color: var(--gh-text-muted) !important;
 }
@@ -436,7 +432,7 @@ code {
     filter: none !important;
 }
 
-#activeActionDIV input,
+#activeActionDIV input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]),
 #activeActionDIV select,
 #activeActionDIV textarea {
     background-color: var(--gh-bg-tertiary) !important;
@@ -444,7 +440,7 @@ code {
     border-color: var(--gh-border) !important;
 }
 
-#activeActionDIV input:focus,
+#activeActionDIV input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]):focus,
 #activeActionDIV select:focus,
 #activeActionDIV textarea:focus {
     background-color: var(--gh-bg-tertiary) !important;
@@ -964,32 +960,31 @@ body {
     color: var(--gh-text) !important;
 }
 
-.card {
-    background-color: var(--gh-bg-secondary) !important;
-    border-color: var(--gh-border) !important;
-}
-
 .card-body {
     background-color: var(--gh-bg-secondary) !important;
     color: var(--gh-text) !important;
 }
 
 .ds-markdown-paragraph {
-    color: #e6edf3 !important;
-    background-color: #161b22 !important;
+    color: var(--gh-text) !important;
+    background-color: var(--gh-bg-secondary) !important;
 }
 
-.ds-markdown-paragraph a {
-    color: #58a6ff !important;
+/* 保留普通富文本的暗色覆盖，排除链接、强调文字及其子元素。 */
+.ds-markdown-paragraph :where(:not(a, a *, strong, strong *, b, b *)) {
+    color: var(--gh-text) !important;
+}
+
+.ds-markdown-paragraph a,
+.ds-markdown-paragraph a * {
+    color: var(--gh-blue-light) !important;
 }
 
 .ds-markdown-paragraph strong,
-.ds-markdown-paragraph b {
+.ds-markdown-paragraph strong *,
+.ds-markdown-paragraph b,
+.ds-markdown-paragraph b * {
     color: #f0f6fc !important;
-}
-
-.ds-markdown-paragraph * {
-    color: #e6edf3 !important;
 }
 
 .list-paddingleft-2 {
@@ -1218,4 +1213,25 @@ html .nav-tabs .nav-link:focus {
     background-color: #172b3d !important;
     color: #a5d6ff !important;
     border-color: #264b6b !important;
+}
+
+/* 选择控件保留原生形状，通过 accent-color 适配选中状态。 */
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+    accent-color: var(--gh-blue-light);
+    color-scheme: dark;
+}
+
+/* 放在页面补丁后，确保只读/禁用状态不被填空及登录样式覆盖。 */
+:is(html, #cgcontainerID, #activeActionDIV, #myLoginContent) :is(input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]), textarea, select):is(:disabled, [readonly]) {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text-secondary) !important;
+    -webkit-text-fill-color: var(--gh-text-secondary) !important;
+    border-color: var(--gh-border) !important;
+    box-shadow: none !important;
+}
+
+:is(html, #cgcontainerID, #activeActionDIV, #myLoginContent) :is(input:not([type="hidden"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="button"], [type="submit"], [type="reset"], [type="image"], [type="file"]), textarea, select):disabled {
+    cursor: not-allowed;
 }
