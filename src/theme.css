@@ -1059,6 +1059,13 @@ pre[class*="brush:cpp"] span {
 
 /* 填空输入与富文本题干 */
 
+/* 填空题富文本也可能携带白底，覆盖段落与嵌套文字的两种常见写法。 */
+#cgcontainerID [id^="answerForm"] :is(p, span)[style*="background-color: rgb(255, 255, 255)"],
+#cgcontainerID [id^="answerForm"] :is(p, span)[style*="background-color: #ffffff" i] {
+    background-color: var(--gh-bg) !important;
+    color: var(--gh-text) !important;
+}
+
 #cgcontainerID input.cloze {
     background-color: var(--gh-bg-secondary) !important;
     color: var(--gh-text) !important;
@@ -1087,6 +1094,94 @@ pre[class*="brush:cpp"] span {
 .cgProblemContentClass [style*="background-color: rgb(255, 255, 255)"] {
     background-color: var(--gh-bg) !important;
     color: var(--gh-text) !important;
+}
+
+/* 在线编程页：仅覆盖原站默认 Eclipse 主题，保留用户选择其他主题的能力。 */
+#cgcode_question-detail-main-tabs .cgcode_css-tt3ivf-Title {
+    color: var(--gh-text) !important;
+}
+
+#cgcode_RightContainer .CodeMirror.cm-s-eclipse,
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-scrollbar-filler,
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-gutter-filler {
+    background-color: var(--gh-bg) !important;
+    color: var(--gh-text) !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-gutters {
+    background-color: var(--gh-bg-secondary) !important;
+    border-color: var(--gh-border) !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-linenumber {
+    color: var(--gh-text-secondary) !important;
+}
+
+/* CodeMirror 的 pre 是代码行和测量节点，不能套用普通代码块的盒模型。 */
+#cgcode_RightContainer .CodeMirror pre {
+    background: transparent !important;
+    color: inherit !important;
+    border: 0;
+    border-radius: 0;
+    padding: 0 4px;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-cursor {
+    border-left-color: var(--gh-text) !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-selected {
+    background-color: #264f78 !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .CodeMirror-activeline-background {
+    background-color: var(--gh-bg-secondary) !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-comment {
+    color: var(--gh-text-secondary) !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-keyword,
+#cgcode_RightContainer .cm-s-eclipse .cm-atom {
+    color: #ff7b72 !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-string,
+#cgcode_RightContainer .cm-s-eclipse .cm-string-2 {
+    color: #a5d6ff !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-number,
+#cgcode_RightContainer .cm-s-eclipse .cm-meta {
+    color: #79c0ff !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-def,
+#cgcode_RightContainer .cm-s-eclipse .cm-variable-3,
+#cgcode_RightContainer .cm-s-eclipse .cm-type {
+    color: #d2a8ff !important;
+}
+
+#cgcode_RightContainer .cm-s-eclipse .cm-variable,
+#cgcode_RightContainer .cm-s-eclipse .cm-variable-2,
+#cgcode_RightContainer .cm-s-eclipse .cm-operator {
+    color: var(--gh-text) !important;
+}
+
+#cgcode_question-detail-main-tabs a[style*="background:#eee" i] {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-blue-light) !important;
+}
+
+/* 文件名 span 自带深色内联文字，需显式继承附件链接颜色。 */
+#cgcode_question-detail-main-tabs a[style*="background:#eee" i] > span {
+    color: inherit !important;
 }
 
 /* 算法动画 */
