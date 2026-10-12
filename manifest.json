@@ -11,6 +11,9 @@
             "css": [
                 "src/theme.css"
             ],
+            "js": [
+                "src/rich-text.js"
+            ],
             "all_frames": true
         }
     ]

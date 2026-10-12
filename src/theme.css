@@ -1059,6 +1059,15 @@ pre[class*="brush:cpp"] span {
 
 /* 填空输入与富文本题干 */
 
+/* 自动适配只标记中性浅底/深字；不覆盖图片、编辑器或彩色标记。 */
+[data-cg-dark-background] {
+    background-color: var(--gh-bg) !important;
+}
+
+[data-cg-dark-text] {
+    color: var(--gh-text) !important;
+}
+
 /* 填空题富文本也可能携带白底，覆盖段落与嵌套文字的两种常见写法。 */
 #cgcontainerID [id^="answerForm"] :is(p, span)[style*="background-color: rgb(255, 255, 255)"],
 #cgcontainerID [id^="answerForm"] :is(p, span)[style*="background-color: #ffffff" i] {
