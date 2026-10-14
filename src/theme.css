@@ -1106,6 +1106,19 @@ pre[class*="brush:cpp"] span {
 }
 
 /* 在线编程页：仅覆盖原站默认 Eclipse 主题，保留用户选择其他主题的能力。 */
+/* 执行结果控制台独立于题干，外壳和标签需单独适配。 */
+#cgcode_RightContainer .cgcode_header__3dyn.cgcode_wrapper__3Gl0,
+#cgcode_RightContainer .cgcode_css-nok86h-TabViewHeader,
+#cgcode_RightContainer .cgcode_show_TabHeaderRow {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text) !important;
+    border-color: var(--gh-border) !important;
+}
+
+#cgcode_RightContainer .cgcode_show_TabHeaderRow span {
+    color: var(--gh-text) !important;
+}
+
 #cgcode_question-detail-main-tabs .cgcode_css-tt3ivf-Title {
     color: var(--gh-text) !important;
 }
