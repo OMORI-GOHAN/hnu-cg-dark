@@ -1227,6 +1227,48 @@ body.VisualizationMainPage #canvas {
     color: var(--gh-text) !important;
 }
 
+/* 程序填空页位于 #box，使用 Highlight.js 模板而非 CodeMirror。 */
+#cgsoucecode > div:has(> code.cgcode) {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text) !important;
+}
+
+#cgsoucecode code.cgcode {
+    color: var(--gh-text) !important;
+}
+
+#cgsoucecode .hljs-keyword,
+#cgsoucecode .hljs-type {
+    color: #ff7b72 !important;
+}
+
+#cgsoucecode .hljs-title {
+    color: #d2a8ff !important;
+}
+
+#cgsoucecode .hljs-meta,
+#cgsoucecode .hljs-number,
+#cgsoucecode .hljs-literal {
+    color: #79c0ff !important;
+}
+
+#cgsoucecode .hljs-string {
+    color: #a5d6ff !important;
+}
+
+#cgsoucecode .hljs-comment {
+    color: var(--gh-text-secondary) !important;
+}
+
+#cgsoucecode textarea {
+    border-color: #6e7681 !important;
+    caret-color: var(--gh-text);
+}
+
+#cgsoucecode textarea:focus {
+    border-color: var(--gh-blue-light) !important;
+}
+
 /* 登录页与统计面板 */
 
 #cgcontainerID .student-style,

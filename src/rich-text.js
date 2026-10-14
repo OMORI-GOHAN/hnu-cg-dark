@@ -1,6 +1,7 @@
 /* Normalize imported light rich text without changing document content. */
 (() => {
-    const roots = '[id^="answerForm"], [id^="tts"], .cgProblemContentClass';
+    // 程序填空模板也检测外层背景；code/textarea 仍走专用主题。
+    const roots = '[id^="answerForm"], [id^="tts"], .cgProblemContentClass, #cgsoucecode';
     const excluded = 'pre, code, a, input, textarea, select, button, img, picture, '
         + 'svg, canvas, iframe, video, .CodeMirror, .katex, .MathJax, '
         + '.no-dark-filter, [data-cg-dark-preserve]';
