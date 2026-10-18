@@ -41,6 +41,10 @@ test('restores loading styles after document replacement and iframe navigation',
                 if (selector === 'iframe#showmessageFRAME') return [frame];
                 assert.ok(selector.includes('.cgcode_header__3dyn'));
                 assert.ok(selector.includes('.cgloader-container'));
+                assert.ok(selector.includes('#index_problems'));
+                assert.ok(selector.includes('#cgcode_description-content'));
+                assert.ok(selector.includes('.add-style-srv-time'));
+                assert.ok(selector.includes('.navbar:has(#prolistDropdown) .dropdown-menu'));
                 return [wrapper];
             },
         },

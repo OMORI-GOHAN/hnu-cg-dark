@@ -3,7 +3,9 @@
     // 控制台与题干共用颜色检测；code/textarea 仍走专用主题。
     const roots = '[id^="answerForm"], [id^="tts"], .cgProblemContentClass, '
         + '#cgsoucecode, #cgcode_RightContainer .cgcode_header__3dyn.cgcode_wrapper__3Gl0, '
-        + '.cgloader-container';
+        + '.cgloader-container, #index_problems, .add-style-timer, .add-style-srv-time, '
+        + '.navbar:has(#prolistDropdown) .dropdown-menu, #cgcode_description-content, '
+        + '#tabs > .alert-light';
     const excluded = 'pre, code, a, input, textarea, select, button, img, picture, '
         + 'svg, canvas, iframe, video, .CodeMirror, .katex, .MathJax, '
         + '.no-dark-filter, [data-cg-dark-preserve]';

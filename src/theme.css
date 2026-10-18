@@ -1029,6 +1029,79 @@ pre[class*="brush:cpp"] span {
 
 /* 考试回顾富文本 */
 
+/* 考试答题导航：原站组件样式晚于扩展加载，需要明确覆盖。 */
+#tabs > .alert-light {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text) !important;
+    border-color: var(--gh-border) !important;
+}
+
+#cgcontainerID #examClockDiv {
+    color: var(--gh-text) !important;
+}
+
+#index_problems .content {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text) !important;
+    border-color: var(--gh-border) !important;
+}
+
+#index_problems .toggle dt {
+    background-color: var(--gh-bg-tertiary) !important;
+    color: var(--gh-text) !important;
+}
+
+#index_problems .btn-outline-secondary {
+    background-color: transparent !important;
+    color: var(--gh-text-secondary) !important;
+    border-color: #6e7681 !important;
+}
+
+#index_problems .btn-outline-secondary:hover,
+#index_problems .btn-outline-secondary:focus,
+#index_problems .btn-outline-secondary.active {
+    background-color: var(--gh-bg-tertiary) !important;
+    color: var(--gh-text) !important;
+    border-color: var(--gh-blue-light) !important;
+}
+
+#cgcontainerID .add-style-timer,
+#cgcontainerID .add-style-srv-time {
+    background-color: var(--gh-bg-secondary) !important;
+    border-color: var(--gh-border) !important;
+}
+
+#cgcontainerID .add-style-timer:not(.text-danger),
+#cgcontainerID .add-style-srv-time {
+    color: var(--gh-text) !important;
+}
+
+.add-style-timer > i,
+.add-style-srv-time > i {
+    color: inherit !important;
+}
+
+/* 考试详情在 iframe 内，按题目切换菜单定位，不影响其他下拉组件。 */
+.navbar:has(#prolistDropdown) .dropdown-menu {
+    background-color: var(--gh-bg-secondary) !important;
+    color: var(--gh-text) !important;
+    border-color: var(--gh-border) !important;
+}
+
+.navbar:has(#prolistDropdown) .dropdown-item {
+    color: var(--gh-text) !important;
+}
+
+.navbar:has(#prolistDropdown) .dropdown-item:hover,
+.navbar:has(#prolistDropdown) .dropdown-item:focus {
+    background-color: var(--gh-bg-tertiary) !important;
+}
+
+.navbar:has(#prolistDropdown) .dropdown-item.active {
+    background-color: var(--gh-blue) !important;
+    color: #ffffff !important;
+}
+
 #cgcontainerID [id^="tts"] p[style*="background-color: rgb(255, 255, 255)"] {
     background-color: var(--gh-bg) !important;
     color: var(--gh-text) !important;
@@ -1121,6 +1194,17 @@ pre[class*="brush:cpp"] span {
 
 #cgcode_question-detail-main-tabs .cgcode_css-tt3ivf-Title {
     color: var(--gh-text) !important;
+}
+
+/* 考试在线编辑页标题没有生成类名；以题目容器限定覆盖范围。 */
+#cgcode_question-detail-main-tabs h4 {
+    color: var(--gh-text) !important;
+}
+
+/* 题图可能是透明底黑字，提供底板而不改变图片本身颜色。 */
+#cgcode_description-content img:not(.no-dark-filter) {
+    background-color: #ffffff;
+    border-radius: 4px;
 }
 
 #cgcode_RightContainer .CodeMirror.cm-s-eclipse,
