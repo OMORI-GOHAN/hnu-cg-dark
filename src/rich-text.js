@@ -60,7 +60,8 @@
     }
 
     function scanResultFrames() {
-        for (const frame of document.querySelectorAll('iframe#showmessageFRAME')) {
+        // 普通上传页使用 showmessageFrame，在线编辑页使用 showmessageFRAME。
+        for (const frame of document.querySelectorAll('iframe[id="showmessageframe" i]')) {
             if (!watchedFrames.has(frame)) {
                 watchedFrames.add(frame);
                 frame.addEventListener('load', () => watchResultFrame(frame));
